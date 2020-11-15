@@ -36,6 +36,22 @@ __END__
 
 File::ShouldUpdate - should files be rebuilt?
 
+=head1 SYNOPSIS
+
+    use File::ShouldUpdate qw/ should_update /;
+
+    if (should_update("output.html", ":", "in.tt2", "data.sqlite"))
+    {
+        system("./my-gen-html");
+    }
+
+=head1 DESCRIPTION
+
+This module provides should_update() which can be used to determine if files
+should be updated based on the mtime timestamps of their dependencies. It avoids
+confusing between target and dependencies by using syntactic sugar of the
+familiar makefile rules ( L<https://en.wikipedia.org/wiki/Make_(software)> ).
+
 =head1 FUNCTIONS
 
 =head2 my $verdict = should_update($target, ":", @deps);
