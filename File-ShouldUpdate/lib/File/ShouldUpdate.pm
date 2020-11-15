@@ -2,6 +2,7 @@ package File::ShouldUpdate;
 
 use strict;
 use warnings;
+use Time::HiRes qw/ stat /;
 
 use parent 'Exporter';
 use vars qw/ @EXPORT_OK /;
@@ -22,7 +23,7 @@ sub should_update
     foreach my $d (@deps)
     {
         my @stat1 = stat($d);
-        return 1 if ( $stat1[9] >= $stat2[9] );
+        return 1 if ( $stat1[9] > $stat2[9] );
     }
     return 0;
 }
