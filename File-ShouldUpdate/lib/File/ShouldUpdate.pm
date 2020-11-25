@@ -84,7 +84,9 @@ Should $target be updated if it doesn't exist or older than any of the deps.
 
 =head2 my $verdict = should_update_multi([@targets], ":", [@deps]);
 
-Should @targets be updated if they do not exist or older than any of the deps.
+Should @targets be updated if some of them do not exist B<or> any of them are older than any of the deps.
+
+Note that you must pass array references.
 
 [Added in version 0.2.0.]
 
