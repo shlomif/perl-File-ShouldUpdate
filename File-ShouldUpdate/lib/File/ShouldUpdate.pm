@@ -44,17 +44,7 @@ sub should_update
     {
         die qq#wrong syntax_sugar - not ":"!#;
     }
-    my @stat2 = stat($filename2);
-    if ( !@stat2 )
-    {
-        return 1;
-    }
-    foreach my $d (@deps)
-    {
-        my @stat1 = stat($d);
-        return 1 if ( $stat1[9] > $stat2[9] );
-    }
-    return 0;
+    return should_update_multi( [$filename2], $syntax_sugar, \@deps );
 }
 
 1;
