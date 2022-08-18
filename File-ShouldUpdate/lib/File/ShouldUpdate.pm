@@ -71,10 +71,11 @@ File::ShouldUpdate - should files be rebuilt?
 
 =head1 DESCRIPTION
 
-This module provides should_update() which can be used to determine if files
-should be updated based on the mtime timestamps of their dependencies. It avoids
-confusing between target and dependencies by using syntactic sugar of the
-familiar makefile rules ( L<https://en.wikipedia.org/wiki/Make_(software)> ).
+This module provides should_update() and should_update_multi() which can be
+used to determine if files should be updated based on the mtime timestamps of
+their dependencies. They avoid confusing between targets and dependencies by
+using the syntactic sugar of the familiar makefile rules (
+L<https://en.wikipedia.org/wiki/Make_(software)> ).
 
 =head1 FUNCTIONS
 
